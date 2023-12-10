@@ -16,28 +16,28 @@
   <meta name="author" content="clotten">
   <meta name="keywords" content="">
   
-    <meta name="description" content="volatility安装和出现的问题及解决方法一、准备工作（1）下载所需文件并解压CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客   在此博客按照教程下载所需文件 先将volatility-master.zip  distorm3-master.zip  hotoloti-master.zip(里面有mimikatz.py)准备好 再将它们统统解压">
+    <meta name="description" content="volatility安装和出现的问题及解决方法注意：本人不会再md上插图片然后再博客上显示出来，呜呜呜，所以可以去csdn上看看吧~ 我的csdn博客：volatility安装和出现的问题及解决方法-CSDN博客 一、准备工作（1）下载所需文件并解压CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客   在此博客按照教程下载所需文件 先将volatilit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="“volatility安装和出现的问题及解决方法”">
 <meta property="og:url" content="http://example.com/2023/12/10/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/index.html">
 <meta property="og:site_name" content="clottenの博客">
-<meta property="og:description" content="volatility安装和出现的问题及解决方法一、准备工作（1）下载所需文件并解压CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客   在此博客按照教程下载所需文件 先将volatility-master.zip  distorm3-master.zip  hotoloti-master.zip(里面有mimikatz.py)准备好 再将它们统统解压">
+<meta property="og:description" content="volatility安装和出现的问题及解决方法注意：本人不会再md上插图片然后再博客上显示出来，呜呜呜，所以可以去csdn上看看吧~ 我的csdn博客：volatility安装和出现的问题及解决方法-CSDN博客 一、准备工作（1）下载所需文件并解压CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客   在此博客按照教程下载所需文件 先将volatilit">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-33-13.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-35-15.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-40-13.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-10-07.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-17-30.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-20-29.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-22-21.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-46-22.png">
-<meta property="og:image" content="e:\Snipaste_2023-12-10_14-55-54.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-33-13.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-35-15.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-40-13.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-10-07.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-17-30.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-20-29.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-22-21.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-46-22.png">
+<meta property="og:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-55-54.png">
 <meta property="article:published_time" content="2023-12-10T07:27:32.000Z">
-<meta property="article:modified_time" content="2023-12-10T07:29:00.224Z">
+<meta property="article:modified_time" content="2023-12-10T08:23:05.390Z">
 <meta property="article:author" content="clotten">
 <meta property="article:tag" content="misc">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="e:\Snipaste_2023-12-10_14-33-13.png">
+<meta name="twitter:image" content="http://example.com/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-33-13.png">
   
   
   
@@ -230,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.9k 字
         
       </span>
     
@@ -241,7 +241,7 @@
         
         
         
-          15 分钟
+          16 分钟
         
       </span>
     
@@ -283,13 +283,15 @@
             
               <div class="markdown-body">
                 
-                <h1 id="volatility安装和出现的问题及解决方法"><a href="#volatility安装和出现的问题及解决方法" class="headerlink" title="volatility安装和出现的问题及解决方法"></a>volatility安装和出现的问题及解决方法</h1><h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="（1）下载所需文件并解压"><a href="#（1）下载所需文件并解压" class="headerlink" title="（1）下载所需文件并解压"></a>（1）下载所需文件并解压</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45894840/article/details/129551831">CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客</a>  </p>
+                <h1 id="volatility安装和出现的问题及解决方法"><a href="#volatility安装和出现的问题及解决方法" class="headerlink" title="volatility安装和出现的问题及解决方法"></a>volatility安装和出现的问题及解决方法</h1><h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>本人不会再md上插图片然后再博客上显示出来，呜呜呜，所以可以去csdn上看看吧~</p>
+<p>我的csdn博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/clotten/article/details/134909943">volatility安装和出现的问题及解决方法-CSDN博客</a></p>
+<h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="（1）下载所需文件并解压"><a href="#（1）下载所需文件并解压" class="headerlink" title="（1）下载所需文件并解压"></a>（1）下载所需文件并解压</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45894840/article/details/129551831">CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客</a>  </p>
 <p>在此博客按照教程下载所需文件</p>
 <p>先将volatility-master.zip  distorm3-master.zip  hotoloti-master.zip(里面有mimikatz.py)准备好</p>
 <p>再将它们统统解压</p>
-<p><img src="E:\Snipaste_2023-12-10_14-33-13.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-33-13.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="（2）将mimikatz-py移动至volatility-master-volatility-plugins-目录下"><a href="#（2）将mimikatz-py移动至volatility-master-volatility-plugins-目录下" class="headerlink" title="（2）将mimikatz.py移动至volatility-master&#x2F;volatility&#x2F;plugins&#x2F;目录下"></a>（2）将mimikatz.py移动至volatility-master&#x2F;volatility&#x2F;plugins&#x2F;目录下</h3><p>将hotoloti-master.zip里的mimikatz.py放入volatility-master&#x2F;volatility&#x2F;plugins&#x2F;目录下</p>
-<p><img src="E:\Snipaste_2023-12-10_14-35-15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-35-15.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="（3）在解压后的Volatility目录与distorm3目录下进行编译"><a href="#（3）在解压后的Volatility目录与distorm3目录下进行编译" class="headerlink" title="（3）在解压后的Volatility目录与distorm3目录下进行编译"></a>（3）在解压后的Volatility目录与distorm3目录下进行编译</h3><p>在root权限下分别在解压后的Volatility目录与distorm3目录下进行编译</p>
 <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino">python2 setup.py install<br></code></pre></td></tr></table></figure>
 
@@ -299,39 +301,39 @@
 <h4 id="2-安装pip2"><a href="#2-安装pip2" class="headerlink" title="2.安装pip2"></a>2.安装pip2</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_45104021/article/details/131014204">解决kali linux pip2与pip3共存_kali pip2-CSDN博客</a></p>
 <p>照着上面一步一步来</p>
 <h3 id="（2）在root权限下安装setuptools"><a href="#（2）在root权限下安装setuptools" class="headerlink" title="（2）在root权限下安装setuptools"></a>（2）在root权限下安装setuptools</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aspnet_lyc/article/details/80111863">pip 安装包时 error: invalid command ‘egg_info’ 解决办法-CSDN博客</a></p>
-<p><img src="E:\Snipaste_2023-12-10_14-40-13.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-40-13.png" srcset="/img/loading.gif" lazyload></p>
 <p>是的，出现**error: invalid command ‘egg_info’**错误时就是setuptools没装</p>
 <h3 id="（3）在root权限下安装相关插件"><a href="#（3）在root权限下安装相关插件" class="headerlink" title="（3）在root权限下安装相关插件"></a>（3）在root权限下安装相关插件</h3><p>插件<br><strong>Distorm3（反编译库）：pip install distorm3<br>Yara（恶意软件分类工具）：pip install yara<br>PyCrypto（加密工具集）：pip install pycrypto<br>PIL（图片处理库）：pip install pillow<br>OpenPyxl（读写excel文件）：pip install openpyxl<br>ujson（JSON解析）：pip install ujson</strong></p>
 <h2 id="三、解决yara库的问题"><a href="#三、解决yara库的问题" class="headerlink" title="三、解决yara库的问题"></a>三、解决yara库的问题</h2><p>终端输入 <strong>vol.py</strong> 发现 （这是yara库的问题）</p>
 <p>参考：（<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42880719/article/details/117304586">volatility安装、内存取证常见知识点及例题讲解(已进行2.1次更新)_volatility -f memory.raw –profile&#x3D;win7sp1x64 scre-CSDN博客</a>）</p>
-<p><img src="E:\Snipaste_2023-12-10_14-10-07.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-10-07.png" srcset="/img/loading.gif" lazyload></p>
 <p>输入 <strong>pip install yara</strong></p>
-<p><img src="E:\Snipaste_2023-12-10_14-17-30.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-17-30.png" srcset="/img/loading.gif" lazyload></p>
 <p>找到yara路径</p>
 <p><strong>&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages</strong> </p>
-<p><img src="E:\Snipaste_2023-12-10_14-20-29.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-20-29.png" srcset="/img/loading.gif" lazyload></p>
 <p>找到libyara.so所在路径</p>
 <p><strong>&#x2F;usr&#x2F;local&#x2F;lib&#x2F;python2.7&#x2F;dist-packages&#x2F;usr&#x2F;lib&#x2F;</strong></p>
-<p>之后在root终端输入（路径不一样可以对着改一改呀）</p>
+<p>之后在root终端输入（路径不一样可以对着改一改）</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">ln -s <span class="hljs-regexp">/usr/</span>local<span class="hljs-regexp">/lib/</span>python2.<span class="hljs-number">7</span><span class="hljs-regexp">/dist-packages/u</span>sr<span class="hljs-regexp">/lib/</span>libyara.so <span class="hljs-regexp">/usr/</span>lib/libyara.so<br></code></pre></td></tr></table></figure>
 
-<p><img src="E:\Snipaste_2023-12-10_14-22-21.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-22-21.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="四、安装construct库并测试"><a href="#四、安装construct库并测试" class="headerlink" title="四、安装construct库并测试"></a>四、安装construct库并测试</h2><p>vol.py后发现还差个construct</p>
 <p><strong>pip install construct</strong>即可</p>
-<p><img src="E:\Snipaste_2023-12-10_14-46-22.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-46-22.png" srcset="/img/loading.gif" lazyload></p>
 <p>之后试一个内存取证的题看看</p>
 <p>把需要分析的内存镜像文件拖入volatility-master文件夹里执行</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">python2 vol<span class="hljs-selector-class">.py</span> -f Challenge<span class="hljs-selector-class">.raw</span> imageinfo<br></code></pre></td></tr></table></figure>
 
 <p>  #f：指定分析的内存镜像文件名</p>
 <p>imageinfo是Volatility中用于获取内存镜像信息的命令。它可以用于确定内存镜像的操作系统类型、版本、架构等信息，以及确定应该使用哪个插件进行内存分析</p>
-<p><img src="E:\Snipaste_2023-12-10_14-55-54.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/%E2%80%9Cvolatility%E5%AE%89%E8%A3%85%E5%92%8C%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E2%80%9D/Snipaste_2023-12-10_14-55-54.png" srcset="/img/loading.gif" lazyload></p>
 <p>我的内存镜像文件源于</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45894840/article/details/129551831">CTF Misc(2)内存取证基础以及原理，覆盖了大部分题型_ctf 内存取证-CSDN博客</a></p>
 <p>你可以照着此博客上的步骤来熟悉volatility</p>
 <h2 id="五、小结"><a href="#五、小结" class="headerlink" title="五、小结"></a>五、小结</h2><p>好耶！折腾三天终于弄好了，嘿嘿。</p>
 <p>如有问题的话可以问一下</p>
-<p>邮箱：<a href="mailto:&#99;&#x6c;&#x6f;&#116;&#x74;&#x65;&#x6e;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#99;&#x6c;&#x6f;&#116;&#x74;&#x65;&#x6e;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></p>
+<p>邮箱：<a href="mailto:&#99;&#x6c;&#111;&#116;&#x74;&#x65;&#x6e;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#99;&#x6c;&#111;&#116;&#x74;&#x65;&#x6e;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></p>
 
                 
               </div>
